@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and mandatory="true" name="Car">
+            <feature mandatory="true" name="Carbody"/>
+            <and name="Radio">
+                <or name="Ports">
+                    <feature name="USB"/>
+                    <feature name="CD"/>
+                </or>
+                <and name="Navigation">
+                    <alt name="DigitalCards">
+                        <feature name="Europe"/>
+                        <feature name="USA"/>
+                    </alt>
+                    <feature mandatory="true" name="GPSAntenna"/>
+                </and>
+                <feature name="Bluetooth"/>
+            </and>
+            <alt mandatory="true" name="Gearbox">
+                <feature name="Manual"/>
+                <feature name="Automatic"/>
+            </alt>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <imp>
+                <var>Navigation</var>
+                <var>USB</var>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>
